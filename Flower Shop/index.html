@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom Flower Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Blossom Flower Shop</div>
+        <nav class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#products-section">Products</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#feedback">Contact</a>
+        </nav>
+        <div class="user-actions">
+            <button id="wishlist-btn" title="View Wishlist">❤</button>
+            <button id="profile-btn">Profile</button>
+            <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to Blossom Flower Shop</h1>
+            <p>Bringing nature's beauty to your doorstep.</p>
+            <a href="#products-section"><button>Shop Now</button></a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a passionate team of florists dedicated to providing the freshest and most beautiful arrangements for every occasion. From weddings to birthdays, or just because, we have the perfect bloom for you.</p>
+    </section>
+
+    <section id="customize-section">
+        <h2>Create Your Own Bouquet</h2>
+        <p>Hand-pick your favorite flowers and let us craft a unique arrangement just for you.</p>
+        <button id="customize-btn">Start Customizing</button>
+    </section>
+
+    <section id="products-section">
+        <h2>Our Flowers</h2>
+        <div class="shop-layout">
+            <aside class="filter-column">
+                <h3>Filter by</h3>
+                <button id="clear-wishlist-btn" style="display: none; width: 100%; margin-bottom: 1rem;">Clear Wishlist</button>
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <label><input type="checkbox" value="Romance" onchange="applyFilters()"> Romance</label><br>
+                    <label><input type="checkbox" value="Celebration" onchange="applyFilters()"> Celebration</label><br>
+                    <label><input type="checkbox" value="Sympathy" onchange="applyFilters()"> Sympathy</label><br>
+                    <label><input type="checkbox" value="Decor" onchange="applyFilters()"> Decor</label><br>
+                    <label><input type="checkbox" value="Plants" onchange="applyFilters()"> Plants</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Price</h4>
+                    <label><input type="radio" name="price" value="all" checked onchange="applyFilters()"> All</label><br>
+                    <label><input type="radio" name="price" value="under30" onchange="applyFilters()"> Under $30</label><br>
+                    <label><input type="radio" name="price" value="30to50" onchange="applyFilters()"> $30 - $50</label><br>
+                    <label><input type="radio" name="price" value="over50" onchange="applyFilters()"> Over $50</label>
+                </div>
+            </aside>
+            <div id="product-grid">
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(1)">❤</button>
+                    <img src="image/ClassicRedRoses.jpg" alt="Classic Red Roses" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Classic Red Roses</h3>
+                    <p>$49.99</p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(2)">❤</button>
+                    <img src="image/SpringTulipMix.jpg" alt="Spring Tulip Mix" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Spring Tulip Mix</h3>
+                    <p>$34.50</p>
+                    <button onclick="addToCart(2)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(3)">❤</button>
+                    <img src="image/SunflowerBouquet.jpg" alt="Sunflower Bouquet" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Sunflower Bouquet</h3>
+                    <p>$29.99</p>
+                    <button onclick="addToCart(3)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(4)">❤</button>
+                    <img src="image/WhiteOrchids.jpg" alt="White Orchids" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>White Orchids</h3>
+                    <p>$55.00</p>
+                    <button onclick="addToCart(4)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(5)">❤</button>
+                    <img src="image/PinkLilies.jpg" alt="Pink Lilies" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Pink Lilies</h3>
+                    <p>$39.99</p>
+                    <button onclick="addToCart(5)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(6)">❤</button>
+                    <img src="image/BlueHydranges.png" alt="Blue Hydrangeas" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Blue Hydrangeas</h3>
+                    <p>$45.00</p>
+                    <button onclick="addToCart(6)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(7)">❤</button>
+                    <img src="image/Mixed Gerberas.png" alt="Mixed Gerberas" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Mixed Gerberas</h3>
+                    <p>$25.00</p>
+                    <button onclick="addToCart(7)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(8)">❤</button>
+                    <img src="image/WhiteDaisies.png" alt="White Daisies" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>White Daisies</h3>
+                    <p>$19.99</p>
+                    <button onclick="addToCart(8)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(9)">❤</button>
+                    <img src="image/PurpleIrises.png" alt="Purple Irises" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Purple Irises</h3>
+                    <p>$32.50</p>
+                    <button onclick="addToCart(9)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(10)">❤</button>
+                    <img src="image/YellowCarnations.png" alt="Yellow Carnations" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Yellow Carnations</h3>
+                    <p>$22.00</p>
+                    <button onclick="addToCart(10)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(11)">❤</button>
+                    <img src="image/OrangeRoses.png" alt="Orange Roses" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Orange Roses</h3>
+                    <p>$48.00</p>
+                    <button onclick="addToCart(11)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(12)">❤</button>
+                    <img src="image/LavenderBundle.jpg" alt="Lavender Bundle" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Lavender Bundle</h3>
+                    <p>$28.00</p>
+                    <button onclick="addToCart(12)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(13)">❤</button>
+                    <img src="image/PeonyArrangement.jpg" alt="Peony Arrangement" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Peony Arrangement</h3>
+                    <p>$59.99</p>
+                    <button onclick="addToCart(13)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(14)">❤</button>
+                    <img src="image/WildflowerMix.jpg" alt="Wildflower Mix" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Wildflower Mix</h3>
+                    <p>$35.00</p>
+                    <button onclick="addToCart(14)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(15)">❤</button>
+                    <img src="image/SucculentGarden.jpg" alt="Succulent Garden" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Succulent Garden</h3>
+                    <p>$29.50</p>
+                    <button onclick="addToCart(15)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <button class="like-btn" onclick="toggleLike(16)">❤</button>
+                    <img src="image/DriedFlowerBouquet.jpg" alt="Dried Flower Bouquet" class="product-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                    <h3>Dried Flower Bouquet</h3>
+                    <p>$42.00</p>
+                    <button onclick="addToCart(16)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback">
+        <h2>We Value Your Feedback</h2>
+        <form id="feedback-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section>
+
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review-container">
+            <div class="review-card">
+                <div class="rating">★★★★★</div>
+                <p>"Absolutely stunning flowers! They arrived fresh and on time."</p>
+                <h4>- Sarah J.</h4>
+            </div>
+            <div class="review-card">
+                <div class="rating">★★★★☆</div>
+                <p>"The best flower shop in town. Great service and beautiful arrangements."</p>
+                <h4>- Mike T.</h4>
+            </div>
+            <div class="review-card">
+                <div class="rating">★★★★★</div>
+                <p>"I ordered a custom bouquet for my wife, and she loved it! Highly recommended."</p>
+                <h4>- David L.</h4>
+            </div>
+            <div class="review-card">
+                <div class="rating">★★★★☆</div>
+                <p>"Fresh flowers and excellent customer support. Will definitely order again."</p>
+                <h4>- Emily R.</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products-section">Shop</a></li>
+                    <li><a href="#feedback">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>123 Blossom Lane, Garden City</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: info@blossomshop.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p>Facebook | Instagram | Twitter</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Blossom Flower Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" title="Go to top">↑</button>
+
+    <!-- Customization Modal -->
+    <div id="customization-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Customize Your Bouquet</h2>
+            <label>Choose Flowers:</label>
+            <div id="flower-checkboxes" class="flower-checkbox-list"></div>
+            <label for="flower-quantity">Quantity:</label>
+            <input type="number" id="flower-quantity" min="1" value="1">
+            <div id="custom-price-display">Estimated Total: $0.00</div>
+            <button id="add-custom-flower">Add to Bouquet</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
