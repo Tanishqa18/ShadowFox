@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal portfolio">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .site-footer {
+            background-color: #d9d9d9;
+        }
+        #contact .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#">Tanishqa Kumavat</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Hi - I'm Tanishqa Kumavat</h1>
+                <p class="lead">I am a passionate web developer focused on building modern, responsive, and
+                    user-friendly websites. I have a strong interest in UI/UX design and logo creation, and I enjoy
+                    crafting clean interfaces and visual identities that enhance the overall user experience.</p>
+                <p><a class="btn" href="#projects">View Projects</a></p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-card">
+                    <h2>About</h2>
+                    <p>I have a strong foundation in programming languages including C++, Python, and Java. My web development skills include HTML, CSS, and JavaScript for building responsive and interactive websites. I am familiar with databases such as MongoDB and SQL, and I use tools and frameworks like Git, GitHub, Figma, and Postman in my development workflow. Along with technical skills, I possess good English communication, creative problem-solving abilities, and strong team collaboration skills.</p>
+                    <p><a class="btn btn-outline" href="Tanishqa_Kumavat_resume.pdf" target="_blank" rel="noopener">View
+                            Resume</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="grid">
+                        <article class="card">
+                                                <h3>TaskMate</h3>
+                                                <a href="Screenshot 2025-10-12 180812.png" target="_blank" rel="noopener">
+                                                    <img class="project-img" src="Screenshot 2025-10-12 180812.png" alt="TaskMate screenshot">
+                                                </a>
+                                                <p>TaskMate is a user-friendly task management website designed to help users organize, track, and manage their daily tasks efficiently. The platform allows users to create, update, prioritize, and categorize tasks, set deadlines, and monitor progress through a centralized dashboard. Built using modern web technologies, TaskMate focuses on responsive design, secure user authentication, and an intuitive UI to improve productivity and time management.</p>
+                        </article>
+                    <article class="card">
+                        <h3>ChatBot</h3>
+                        <a href="Screenshot 2025-12-22 110522.png" target="_blank" rel="noopener">
+                            <img class="project-img" src="Screenshot 2025-12-22 110522.png" alt="ChatBot screenshot">
+                        </a>
+                        <p>This project is an AI-powered chatbot website that generates human-like responses using a pre-trained language model. The chatbot is built using Python and Flask for the backend, with Hugging Face Transformers and PyTorch for natural language processing. It provides an interactive chat interface where users can input text and receive dynamic responses in real time.</p>
+                        
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the platforms below.</p>
+            
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:tanishqa.kumavat05@gmail.com">tanishqa.kumavat05@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+919309284565">+91 9309284565</a></p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/Tanishqa18" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tanishqa-kumavat-4b5a9428b/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+            <p>&copy; <span id="year"></span>Tanishqa Kumavat</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.main-nav');
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+            navToggle.setAttribute('aria-expanded', !expanded);
+            nav.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
