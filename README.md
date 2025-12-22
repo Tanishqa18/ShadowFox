@@ -9,6 +9,7 @@ This repository contains all the projects I developed during my internship at **
 ### 1. [Biginner_Level](./Project1/)
 - 🔹 **Description:** Task: Make a Personal Portfolio Website
 - 🔹 **Tech Stack:** Html, css
+- Link: https://tanishqapersonalportfolio.netlify.app/
 
 ---
 
@@ -19,3 +20,4 @@ Focus on improving product filtering, sorting mechanisms,
 and streamlining the checkout process for a more seamless
 shopping experience.
 - 🔹 **Tech Stack:** e.g., Html, css,js
+- Link: https://blossomflowershop45.netlify.app/
