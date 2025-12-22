@@ -114,6 +114,7 @@ const products = [
 ];
 
 let cartCount = 0;
+let cartItems = [];
 const likedProductIds = new Set();
 
 function renderProducts(productsToRender = products) {
@@ -136,9 +137,50 @@ function renderProducts(productsToRender = products) {
 }
 
 function addToCart(id) {
-    cartCount++;
+    const product = products.find(p => p.id === id);
+    if (product) {
+        cartItems.push(product);
+        cartCount++;
+        document.getElementById('cart-count').textContent = cartCount;
+        showToast(`${product.name} added to cart!`);
+    }
+}
+
+function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    cartCount--;
     document.getElementById('cart-count').textContent = cartCount;
-    showToast("Item added to cart!");
+    renderCart();
+}
+
+function renderCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    
+    if (!cartItemsContainer) return;
+
+    if (cartItems.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        if (cartTotalElement) cartTotalElement.textContent = 'Total: $0.00';
+        return;
+    }
+
+    let total = 0;
+    cartItemsContainer.innerHTML = cartItems.map((item, index) => {
+        total += item.price;
+        return `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h4>${item.name}</h4>
+                    <p>$${item.price.toFixed(2)}</p>
+                </div>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </div>
+        `;
+    }).join('');
+    
+    if (cartTotalElement) cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
 }
 
 function toggleLike(id) {
@@ -212,6 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const flowerCheckboxes = document.getElementById('flower-checkboxes');
     const quantityInput = document.getElementById('flower-quantity');
     const priceDisplay = document.getElementById('custom-price-display');
+    
+    const cartBtn = document.getElementById('cart-btn');
+    const cartModal = document.getElementById('cart-modal');
+    const closeCartBtn = document.querySelector('.close-cart');
+    const checkoutBtn = document.getElementById('checkout-btn');
 
     // Populate the dropdown with available products
     if (flowerCheckboxes) {
@@ -277,10 +324,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Cart Modal Logic
+    if (cartBtn) {
+        cartBtn.addEventListener('click', () => {
+            renderCart();
+            if (cartModal) cartModal.style.display = 'block';
+        });
+    }
+
+    if (closeCartBtn) {
+        closeCartBtn.addEventListener('click', () => {
+            if (cartModal) cartModal.style.display = 'none';
+        });
+    }
+
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cartItems.length === 0) {
+                showToast("Your cart is empty!");
+            } else {
+                showToast("Thank you for your purchase!");
+                cartItems = [];
+                cartCount = 0;
+                document.getElementById('cart-count').textContent = cartCount;
+                if (cartModal) cartModal.style.display = 'none';
+            }
+        });
+    }
+
     // Close modal when clicking outside of it
     window.addEventListener('click', (event) => {
         if (event.target == modal) {
             modal.style.display = 'none';
+        }
+        if (event.target == cartModal) {
+            cartModal.style.display = 'none';
         }
     });
 
@@ -310,6 +388,7 @@ window.addToCart = addToCart;
 window.applyFilters = applyFilters;
 window.toggleLike = toggleLike;
 window.showToast = showToast;
+window.removeFromCart = removeFromCart;
 
 // Back to Top Button Logic
 const backToTopBtn = document.getElementById("back-to-top");
