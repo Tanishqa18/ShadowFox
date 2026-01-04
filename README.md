@@ -21,3 +21,15 @@ and streamlining the checkout process for a more seamless
 shopping experience.
 - 🔹 **Tech Stack:** e.g., Html, css,js
 - Link: https://blossomflowershop45.netlify.app/
+
+---
+
+### 3. [Advanced level](./Project3/)
+- 🔹 **Description:** Collaborate on a full-stack web development project for a client.
+This may involve working on both the front-end and back-end aspects of
+the application, implementing features, and ensuring data security. To
+uphold the utmost confidentiality of the company, in-depth discussions
+regarding all client projects will be conducted through dedicated Google
+Meetsessions.
+- 🔹 **Tech Stack:** e.g., Html, css,js
+- Link: https: https://sakthidentalclinictn.netlify.app/
